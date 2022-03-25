@@ -1,6 +1,10 @@
 const redux = require("redux");
+const reduxLogger = require("redux-logger");
+
+const logger = reduxLogger.createLogger();
 const createStore = redux.createStore;
 const combineReducers = redux.combineReducers;
+const applyMiddleware = redux.applyMiddleware;
 
 // console.log("First Redux exp");
 const BUY_MOB = "BUY_MOB";
@@ -68,10 +72,11 @@ const rootReducer = combineReducers({
   tab: TabReducer,
 });
 
-const store = createStore(rootReducer); ///1
+const store = createStore(rootReducer, applyMiddleware(logger)); ///1
 console.log("initial State is", store.getState()); ///2
-const unSubscribe = store.subscribe(() =>
-  console.log("Updated State is", store.getState())
+const unSubscribe = store.subscribe(
+  () => {}
+  // console.log("Updated State is", store.getState())
 ); ///4
 store.dispatch(buyMob()); ///3
 store.dispatch(buyMob());
