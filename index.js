@@ -9,7 +9,7 @@ const applyMiddleware = redux.applyMiddleware;
 // console.log("First Redux exp");
 const BUY_MOB = "BUY_MOB";
 const BUY_TAB = "BUY_TAB";
-
+  
 function buyMob() {
   return {
     type: BUY_MOB,
@@ -29,7 +29,7 @@ function buyTab() {
 const initialMobState = {
   numberOfMobs: 100,
 };
-const initialTabState = {
+const initialTabState = {  
   numberOfTabs: 50,
 };
 
